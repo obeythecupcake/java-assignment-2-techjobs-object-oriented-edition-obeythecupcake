@@ -30,8 +30,23 @@ public class Job {
 
     }
 
+
     // TODO: Add custom equals and hashCode methods. Consider two Job objects "equal" when their id fields
     //  match.
+
+    public String toString(){
+        String template = "\nID:  " + this.id + "\n" +
+                "Name: " + this.name + "\n" +
+                "Employer: " + this.employer + "\n" +
+                "Location: " + this.location + "\n" +
+                "Position Type: " + this.positionType + "\n" +
+                "Core Competency: " + this.coreCompetency + "\n";
+        if (this.name == null){
+            this.name = "Data not available";
+        }
+
+        return template;
+    }
 
     @Override
     public boolean equals(Object o) {

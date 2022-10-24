@@ -43,4 +43,28 @@ public class JobTest {
         assertFalse(jobOne == jobTwo);
     }
 
+    @Test
+    public void testToStringStartsAndEndsWithNewLine(){
+        Job testJob = new Job();
+        assertEquals("\nID:  _______\n" +
+                "Name: _______\n" +
+                "Employer: _______\n" +
+                "Location: _______\n" +
+                "Position Type: _______\n" +
+                "Core Competency: _______\n", testJob.toString());
+    }
+
+    @Test
+    public void testToStringContainsCorrectLabelsAndData(){
+        Job test = new Job("Job test", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+       assertEquals("\nID:  1\n" +
+               "Name: Job test\n" +
+               "Employer: ACME\n" +
+               "Location: Desert\n" +
+               "Position Type: Quality control\n" +
+               "Core Competency: Persistence\n", test.toString());
+    }
+
+
+
 }
