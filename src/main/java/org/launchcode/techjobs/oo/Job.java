@@ -35,15 +35,30 @@ public class Job {
     //  match.
 
     public String toString(){
+
+        if (this.name == null || this.name == ""){
+            this.name = "Data not available";
+        };
+        if (employer.getValue() == null || employer.getValue() == ""){
+            employer.setValue("Data not available");
+        };
+        if (location.getValue() == null || location.getValue() == ""){
+            location.setValue("Data not available");
+        };
+        if (positionType.getValue() == null || positionType.getValue() == ""){
+            positionType.setValue("Data not available");
+        };
+        if (coreCompetency.getValue() == null || coreCompetency.getValue() == ""){
+            coreCompetency.setValue("Data not available");
+        };
+
         String template = "\nID:  " + this.id + "\n" +
                 "Name: " + this.name + "\n" +
                 "Employer: " + this.employer + "\n" +
                 "Location: " + this.location + "\n" +
                 "Position Type: " + this.positionType + "\n" +
                 "Core Competency: " + this.coreCompetency + "\n";
-        if (this.name == null){
-            this.name = "Data not available";
-        }
+
 
         return template;
     }

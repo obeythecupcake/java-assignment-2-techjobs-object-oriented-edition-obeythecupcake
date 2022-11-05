@@ -45,24 +45,21 @@ public class JobTest {
 
     @Test
     public void testToStringStartsAndEndsWithNewLine(){
-        Job testJob = new Job();
-        assertEquals("\nID:  _______\n" +
-                "Name: _______\n" +
-                "Employer: _______\n" +
-                "Location: _______\n" +
-                "Position Type: _______\n" +
-                "Core Competency: _______\n", testJob.toString());
+        Job testJob = new Job("Job test", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+        assertEquals('\n',testJob.toString().charAt(0));
+        assertEquals('\n',testJob.toString().charAt(testJob.toString().length()-1));
     }
 
     @Test
     public void testToStringContainsCorrectLabelsAndData(){
         Job test = new Job("Job test", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
-       assertEquals("\nID:  1\n" +
-               "Name: Job test\n" +
-               "Employer: ACME\n" +
-               "Location: Desert\n" +
-               "Position Type: Quality control\n" +
-               "Core Competency: Persistence\n", test.toString());
+        //int testId = 1;
+       assertEquals("\nID:  " + test.getId() + "\n" +
+               "Name: " + test.getName() + "\n" +
+               "Employer: " + test.getEmployer() + "\n" +
+               "Location: " + test.getLocation() + "\n" +
+               "Position Type: " + test.getPositionType() + "\n" +
+               "Core Competency: " + test.getCoreCompetency() + "\n", test.toString());
     }
 
 
