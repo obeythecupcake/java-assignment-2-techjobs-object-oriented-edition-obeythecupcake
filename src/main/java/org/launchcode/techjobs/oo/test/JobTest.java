@@ -54,7 +54,7 @@ public class JobTest {
     public void testToStringContainsCorrectLabelsAndData(){
         Job test = new Job("Job test", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
         //int testId = 1;
-       assertEquals("\nID:  " + test.getId() + "\n" +
+       assertEquals("\nID: " + test.getId() + "\n" +
                "Name: " + test.getName() + "\n" +
                "Employer: " + test.getEmployer() + "\n" +
                "Location: " + test.getLocation() + "\n" +
@@ -62,6 +62,16 @@ public class JobTest {
                "Core Competency: " + test.getCoreCompetency() + "\n", test.toString());
     }
 
+    @Test
+    public void testToStringHandlesEmptyField(){
+        Job emptyTest = new Job("", new Employer(""), new Location(""), new PositionType(""), new CoreCompetency(""));
+        assertEquals("\nID: " + emptyTest.getId() + "\n" +
+                "Name: Data not available\n" +
+                "Employer: Data not available\n" +
+                "Location: Data not available\n" +
+                "Position Type: Data not available\n" +
+                "Core Competency: Data not available\n", emptyTest.toString());;
+    }
 
 
 }
